@@ -1,0 +1,12 @@
+controllers/PrimaryController.class
+models/BooksAuthors.class
+models/Authors.class
+models/Books.class
+com/murilo/Main.class
+controllers/AuthorsController.class
+com/murilo/BackButton.class
+controllers/BooksController.class
+module-info.class
+controllers/PublishersController.class
+models/Publishers.class
+dao/ClientDAO.class
