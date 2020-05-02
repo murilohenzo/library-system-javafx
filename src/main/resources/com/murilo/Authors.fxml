@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="controllers.AuthorsController"
+          prefHeight="600" prefWidth="950" styleClass="pane" hgap="10" vgap="10">
+
+    <padding>
+        <Insets left="20" right="20" top="40" bottom="40"/>
+    </padding>
+
+    <Label text="Author ID:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <TextField fx:id="authorIdField" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="150"/>
+    <Label text="Author Name:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="authorNameField" GridPane.columnIndex="1" GridPane.rowIndex="2" maxWidth="150" />
+    <Label text="Author Fname:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="authorFnameField" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="150" />
+
+    <Button fx:id="insertButton" mnemonicParsing="false" onAction="#insertButton" text="Insert" GridPane.columnIndex="0" GridPane.rowIndex="5" maxWidth="70"/>
+    <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateButton" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="5" maxWidth="70"/>
+    <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButton" text="Delete" GridPane.columnIndex="0" GridPane.rowIndex="6" maxWidth="70"/>
+    <Button fx:id="showButton" mnemonicParsing="false" onAction="#showButton" text="Show" GridPane.columnIndex="1" GridPane.rowIndex="6" maxWidth="70"/>
+
+    <TableView GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="AuthorsTableView" prefHeight="400" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="authorIdColumn" prefWidth="200" text="Author ID"/>
+            <TableColumn fx:id="authorNameColumn" prefWidth="200" text="Author Name"/>
+            <TableColumn fx:id="authorFnameColumn" prefWidth="200" text="Author Fname"/>
+        </columns>
+    </TableView>
+
+</GridPane>
