@@ -1,7 +1,9 @@
 package controllers;
 
+import com.murilo.Main;
 import dao.ClientDAO;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -9,6 +11,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.Authors;
+
+import java.io.IOException;
 
 public class AuthorsController {
 
@@ -92,9 +96,5 @@ public class AuthorsController {
     }
 
     public void showButton() {showAuthors();}
-
-//    public void exitButton() {
-//        System.exit(0);
-//    }
 
 }

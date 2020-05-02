@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.PrimaryController"
+      prefHeight="600" prefWidth="1200" spacing="10" alignment="CENTER">
+
+
+    <Label text="Welcome to the Library System"/>
+    <Button text="Go to Authors" onAction="#goToAuthors"/>
+    <Button text="Go to Publishers" onAction="#goToPublishers"/>
+    <Button text="Go to Books" onAction="#goToBooks"/>
+    <Button text="Exit"/>
+
+
+</VBox>
