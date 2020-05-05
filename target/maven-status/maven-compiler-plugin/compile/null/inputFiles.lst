@@ -1,12 +1,12 @@
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/models/Books.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/dao/ClientDAO.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/controllers/PublishersController.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/models/Publishers.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/models/Authors.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/controllers/PrimaryController.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/models/BooksAuthors.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/com/murilo/BackButton.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/controllers/AuthorsController.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/controllers/BooksController.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/com/murilo/Main.java
-/home/kelton/IdeaProjects/library-system-javafx/src/main/java/module-info.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/controllers/PrimaryController.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/models/BooksAuthors.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/models/Publishers.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/com/murilo/BackButton.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/com/murilo/Main.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/controllers/AuthorsController.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/dao/ClientDAO.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/controllers/PublishersController.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/controllers/BooksController.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/models/Authors.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/module-info.java
+/home/murilo/Área de Trabalho/Estudos/Java/JavaFx/Projeto/src/main/java/models/Books.java

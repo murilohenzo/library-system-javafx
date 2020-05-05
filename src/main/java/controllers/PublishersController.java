@@ -2,13 +2,17 @@ package controllers;
 
 import dao.ClientDAO;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.geometry.Pos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.Publishers;
+import org.controlsfx.control.Notifications;
+
+import java.io.IOException;
 
 public class PublishersController {
 
@@ -22,18 +26,6 @@ public class PublishersController {
 
     @FXML
     public TextField urlField;
-
-    @FXML
-    public Button insertButton;
-
-    @FXML
-    public Button updateButton;
-
-    @FXML
-    public Button deleteButton;
-
-    @FXML
-    public Button showButton;
 
     @FXML
     public TableView<Publishers> PublishersTableView;
@@ -63,34 +55,125 @@ public class PublishersController {
         PublishersTableView.setItems(list);
     }
 
-    public void insertButton() {
+    public void insertButton(ActionEvent actionEvent) throws IOException {
         Publishers publishers = new Publishers();
-        publishers.publisher_id = Integer.parseInt(publisherIdField.getText());
-        publishers.name = publisherNameField.getText();
-        publishers.url = publisherNameField.getText();
-        insert(publishers);
-        showPublishers();
+
+        if (publisherIdField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publishers FXML")
+                    .text("Empty Publisher ID Field")
+                    .showError();
+            insert(publishers);
+        } else if (publisherNameField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publisher FXML")
+                    .text("Empty Publisher Name Field")
+                    .showError();
+            insert(publishers);
+        } else if (urlField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publisher FXML")
+                    .text("Empty Publisher URL Field")
+                    .showError();
+            insert(publishers);
+        } else {
+            publishers.publisher_id = Integer.parseInt(publisherIdField.getText());
+            publishers.name = publisherNameField.getText();
+            publishers.url = urlField.getText();
+
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publisher FXML")
+                    .text("Successful Insert")
+                    .showConfirm();
+            insert(publishers);
+            showPublishers();
+        }
     }
 
-    public void updateButton() {
+    public void updateButton(ActionEvent actionEvent) throws IOException {
         Publishers publishers = new Publishers();
-        publishers.publisher_id = Integer.parseInt(publisherIdField.getText());
-        publishers.name = publisherNameField.getText();
-        publishers.url = publisherNameField.getText();
-        update(publishers);
-        showPublishers();
+
+        if (publisherIdField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publishers FXML")
+                    .text("Empty Publisher ID Field")
+                    .showError();
+            update(publishers);
+        } else if (publisherNameField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publisher FXML")
+                    .text("Empty Publisher Name Field")
+                    .showError();
+            update(publishers);
+        } else if (urlField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publisher FXML")
+                    .text("Empty Publisher URL Field")
+                    .showError();
+            update(publishers);
+        } else {
+            publishers.publisher_id = Integer.parseInt(publisherIdField.getText());
+            publishers.name = publisherNameField.getText();
+            publishers.url = urlField.getText();
+
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publisher FXML")
+                    .text("Successful Update")
+                    .showConfirm();
+            update(publishers);
+            showPublishers();
+        }
     }
 
-    public void deleteButton() {
+    public void deleteButton(ActionEvent actionEvent) throws IOException {
         Publishers publishers = new Publishers();
-        publishers.publisher_id = Integer.parseInt(publisherIdField.getText());
-        publishers.name = publisherNameField.getText();
-        publishers.url = publisherNameField.getText();
-        delete(publishers.publisher_id);
-        showPublishers();
+
+        if (publisherIdField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publishers FXML")
+                    .text("Empty Publisher ID Field")
+                    .showError();
+            delete(publishers.publisher_id);
+        } else if (publisherNameField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publisher FXML")
+                    .text("Empty Publisher Name Field")
+                    .showError();
+            delete(publishers.publisher_id);
+        } else if (urlField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publisher FXML")
+                    .text("Empty Publisher URL Field")
+                    .showError();
+            delete(publishers.publisher_id);
+        } else {
+            publishers.publisher_id = Integer.parseInt(publisherIdField.getText());
+            publishers.name = publisherNameField.getText();
+            publishers.url = urlField.getText();
+
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Publisher FXML")
+                    .text("Successful Delete")
+                    .showConfirm();
+
+            delete(publishers.publisher_id);
+            showPublishers();
+        }
     }
 
-    public void showButton() {
+    public void showButton(ActionEvent actionEvent)throws IOException {
         showPublishers();
     }
 }

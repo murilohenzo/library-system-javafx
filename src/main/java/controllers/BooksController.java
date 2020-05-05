@@ -2,20 +2,21 @@ package controllers;
 
 import dao.ClientDAO;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.geometry.Pos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.Books;
+import org.controlsfx.control.Notifications;
+
+import java.io.IOException;
 
 public class BooksController {
 
     private final ClientDAO clientDAO = new ClientDAO();
-
-    @FXML
-    public Button showButton;
 
     @FXML
     public TextField publisherIdField;
@@ -28,15 +29,6 @@ public class BooksController {
 
     @FXML
     public TextField priceField;
-
-    @FXML
-    public Button insertButton;
-
-    @FXML
-    public Button updateButton;
-
-    @FXML
-    public Button deleteButton;
 
     @FXML
     public TableView<Books> BooksTableView;
@@ -55,9 +47,6 @@ public class BooksController {
 
     @FXML
     public TextField searchField;
-
-    @FXML
-    public Button searchButton;
 
     @FXML
     public TableView<Books> SearchTableView;
@@ -107,54 +96,178 @@ public class BooksController {
         BooksTableView.setItems(list);
     }
 
-    public void insertButton() {
+    public void insertButton(ActionEvent actionEvent) throws IOException {
         Books books = new Books();
-        books.publisher_id = Integer.parseInt(publisherIdField.getText());
-        books.isbn = isbnField.getText();
-        books.title = titleField.getText();
-        books.price = Float.parseFloat(priceField.getText());
-        insert(books);
+
+        if (publisherIdField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty Publisher ID Field")
+                    .showError();
+            insert(books);
+        } else if (isbnField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty ISBN Field")
+                    .showError();
+            insert(books);
+        } else if (titleField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty Title Field")
+                    .showError();
+            insert(books);
+        } else if (priceField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty Price Field")
+                    .showError();
+            insert(books);
+        } else {
+            books.publisher_id = Integer.parseInt(publisherIdField.getText());
+            books.isbn = isbnField.getText();
+            books.title = titleField.getText();
+            books.price = Float.parseFloat(priceField.getText());
+
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Successful Insert")
+                    .showConfirm();
+
+            insert(books);
+            showBooks();
+        }
+    }
+
+    public void updateButton(ActionEvent actionEvent) throws IOException {
+        Books books = new Books();
+
+        if (publisherIdField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty Publisher ID Field")
+                    .showError();
+            update(books);
+        } else if (isbnField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty ISBN Field")
+                    .showError();
+            update(books);
+        } else if (titleField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty Title Field")
+                    .showError();
+            update(books);
+        } else if (priceField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty Price Field")
+                    .showError();
+            update(books);
+        } else {
+            books.publisher_id = Integer.parseInt(publisherIdField.getText());
+            books.isbn = isbnField.getText();
+            books.title = titleField.getText();
+            books.price = Float.parseFloat(priceField.getText());
+
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Successful Update")
+                    .showConfirm();
+
+            update(books);
+            showBooks();
+        }
+    }
+
+    public void deleteButton(ActionEvent actionEvent) throws IOException {
+        Books books = new Books();
+
+        if (publisherIdField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty Publisher ID Field")
+                    .showError();
+            delete(books.isbn);
+        } else if (isbnField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty ISBN Field")
+                    .showError();
+            delete(books.isbn);
+        } else if (titleField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty Title Field")
+                    .showError();
+            delete(books.isbn);
+        } else if (priceField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty Price Field")
+                    .showError();
+            delete(books.isbn);
+        } else {
+            books.publisher_id = Integer.parseInt(publisherIdField.getText());
+            books.isbn = isbnField.getText();
+            books.title = titleField.getText();
+            books.price = Float.parseFloat(priceField.getText());
+
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Successful Delete")
+                    .showConfirm();
+
+            delete(books.isbn);
+            showBooks();
+        }
+    }
+
+    public void showButton(ActionEvent actionEvent) throws IOException {
         showBooks();
     }
 
-    public void updateButton() {
+    public void searchButton(ActionEvent actionEvent) throws IOException {
         Books books = new Books();
-        books.publisher_id = Integer.parseInt(publisherIdField.getText());
-        books.isbn = isbnField.getText();
-        books.title = titleField.getText();
-        books.price = Float.parseFloat(priceField.getText());
-        update(books);
-        showBooks();
-    }
 
-    public void deleteButton() {
-        Books books = new Books();
-        books.publisher_id = Integer.parseInt(publisherIdField.getText());
-        books.isbn = isbnField.getText();
-        books.title = titleField.getText();
-        books.price = Float.parseFloat(priceField.getText());
-        delete(books.isbn);
-        showBooks();
-    }
+        if (searchField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Books FXML")
+                    .text("Empty Search Field")
+                    .showError();
+            searchBooks(books.title);
+        } else {
+            books.title = searchField.getText();
 
-    public void showButton() {
-        showBooks();
-    }
+            ObservableList<Books> list = searchBooks(books.title);
+            publisherColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, Integer>("publisher_id"));
+            isbnColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, String>("isbn"));
+            publisherNameColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, String>("publisher_name"));
+            titleColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, String>("title"));
+            priceColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, Float>("price"));
+            authorIdColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, Integer>("author_id"));
+            nameColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, String>("author_name"));
+            fnameColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, String>("author_fname"));
+            SearchTableView.setItems(list);
 
-    public void searchButton() {
-        Books books = new Books();
-        books.title = searchField.getText();
-
-        ObservableList<Books> list = searchBooks(books.title);
-        publisherColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, Integer>("publisher_id"));
-        isbnColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, String>("isbn"));
-        publisherNameColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, String>("publisher_name"));
-        titleColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, String>("title"));
-        priceColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, Float>("price"));
-        authorIdColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, Integer>("author_id"));
-        nameColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, String>("author_name"));
-        fnameColumnSearch.setCellValueFactory(new PropertyValueFactory<Books, String>("author_fname"));
-        SearchTableView.setItems(list);
-
+        }
     }
 }

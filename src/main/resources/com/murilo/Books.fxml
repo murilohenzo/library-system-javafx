@@ -25,10 +25,10 @@
     <Label text="Price:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
     <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="4" maxWidth="150" />
 
-    <Button fx:id="insertButton" mnemonicParsing="false" onAction="#insertButton" text="Insert" GridPane.columnIndex="0" GridPane.rowIndex="5" maxWidth="70"/>
-    <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateButton" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="5" maxWidth="70"/>
-    <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteButton" text="Delete" GridPane.columnIndex="0" GridPane.rowIndex="6" maxWidth="70"/>
-    <Button fx:id="showButton" mnemonicParsing="false" onAction="#showButton" text="Show" GridPane.columnIndex="1" GridPane.rowIndex="6" maxWidth="70"/>
+    <Button  mnemonicParsing="false" onAction="#insertButton" text="Insert" GridPane.columnIndex="0" GridPane.rowIndex="5" maxWidth="70"/>
+    <Button  mnemonicParsing="false" onAction="#updateButton" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="5" maxWidth="70"/>
+    <Button  mnemonicParsing="false" onAction="#deleteButton" text="Delete" GridPane.columnIndex="0" GridPane.rowIndex="6" maxWidth="70"/>
+    <Button  mnemonicParsing="false" onAction="#showButton" text="Show" GridPane.columnIndex="1" GridPane.rowIndex="6" maxWidth="70"/>
     <fx:include source="BackButton.fxml" GridPane.columnIndex="0" GridPane.rowIndex="7" maxWidth="70"/>
 
     <TableView GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="BooksTableView" prefHeight="400" prefWidth="1000">
@@ -42,7 +42,7 @@
 
     <Label text="Search Books:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
     <TextField fx:id="searchField" GridPane.columnIndex="1" GridPane.rowIndex="8" maxWidth="150" />
-    <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButton" text="Search" GridPane.columnIndex="1" GridPane.rowIndex="9" maxWidth="70"/>
+    <Button mnemonicParsing="false" onAction="#searchButton" text="Search" GridPane.columnIndex="1" GridPane.rowIndex="9" maxWidth="70"/>
     <TableView GridPane.columnIndex="1" GridPane.rowIndex="10"  fx:id="SearchTableView" prefHeight="400" prefWidth="1000">
         <columns>
             <TableColumn fx:id="publisherColumnSearch" prefWidth="125" text="PublisherID"/>

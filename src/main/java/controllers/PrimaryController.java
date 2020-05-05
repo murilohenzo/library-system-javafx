@@ -19,4 +19,8 @@ public class PrimaryController {
     public void goToBooks(ActionEvent actionEvent) throws IOException {
         Main.setRoot("Books");
     }
+
+    public void exitProgram() {
+        System.exit(0);
+    }
 }

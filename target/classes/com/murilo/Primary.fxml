@@ -6,14 +6,14 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="controllers.PrimaryController"
-      prefHeight="600" prefWidth="1200" spacing="10" alignment="CENTER">
+      prefHeight="850" prefWidth="1150" spacing="10" alignment="CENTER">
 
 
-    <Label text="Welcome to the Library System"/>
+    <Label text="Welcome to the Library System" styleClass="welcome"/>
     <Button text="Go to Authors" onAction="#goToAuthors"/>
     <Button text="Go to Publishers" onAction="#goToPublishers"/>
     <Button text="Go to Books" onAction="#goToBooks"/>
-    <Button text="Exit"/>
+    <Button text="Exit" onAction="#exitProgram"/>
 
 
 </VBox>

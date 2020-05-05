@@ -1,16 +1,16 @@
 package controllers;
 
-import com.murilo.Main;
 import dao.ClientDAO;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.geometry.Pos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.Authors;
+import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
 
@@ -26,18 +26,6 @@ public class AuthorsController {
 
     @FXML
     public TextField authorFnameField;
-
-    @FXML
-    public Button insertButton;
-
-    @FXML
-    public Button updateButton;
-
-    @FXML
-    public Button deleteButton;
-
-    @FXML
-    public Button showButton;
 
     @FXML
     public TableView<Authors> AuthorsTableView;
@@ -67,34 +55,128 @@ public class AuthorsController {
         AuthorsTableView.setItems(list);
     }
 
-    public void insertButton() {
+    public void insertButton(ActionEvent actionEvent) throws IOException{
         Authors authors = new Authors();
-        authors.author_id = Integer.parseInt(authorIdField.getText());
-        authors.name = authorNameField.getText();
-        authors.fname = authorFnameField.getText();
-        insert(authors);
-        showAuthors();
+
+        if (authorIdField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Empty Author ID Field")
+                    .showError();
+            insert(authors);
+        } else if (authorNameField.getText().isEmpty()){
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Empty Author Name Field")
+                    .showError();
+            insert(authors);
+        } else if (authorFnameField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Empty Author Fname Field")
+                    .showError();
+            insert(authors);
+        } else {
+            authors.author_id = Integer.parseInt(authorIdField.getText());
+            authors.name = authorNameField.getText();
+            authors.fname = authorFnameField.getText();
+
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Successful Insert")
+                    .showConfirm();
+
+            insert(authors);
+            showAuthors();
+
+        }
 
     }
 
-    public void updateButton() {
+    public void updateButton(ActionEvent actionEvent) throws IOException {
         Authors authors = new Authors();
-        authors.author_id = Integer.parseInt(authorIdField.getText());
-        authors.name = authorNameField.getText();
-        authors.fname = authorFnameField.getText();
-        update(authors);
-        showAuthors();
+
+        if (authorIdField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Empty Author ID Field")
+                    .showError();
+            update(authors);
+        } else if (authorNameField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Empty Author Name Field")
+                    .showError();
+            update(authors);
+        } else if (authorFnameField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Empty Author Fname Field")
+                    .showError();
+            update(authors);
+        } else {
+            authors.author_id = Integer.parseInt(authorIdField.getText());
+            authors.name = authorNameField.getText();
+            authors.fname = authorFnameField.getText();
+
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Successful Update")
+                    .showConfirm();
+
+            update(authors);
+            showAuthors();
+        }
     }
 
-    public void deleteButton() {
+    public void deleteButton(ActionEvent actionEvent) throws IOException {
         Authors authors = new Authors();
-        authors.author_id = Integer.parseInt(authorIdField.getText());
-        authors.name = authorNameField.getText();
-        authors.fname = authorFnameField.getText();
-        delete(authors.author_id);
-        showAuthors();
+
+        if (authorIdField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Empty Author ID Field")
+                    .showError();
+            delete(authors.author_id);
+        } else if (authorNameField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Empty Author Name Field")
+                    .showError();
+            delete(authors.author_id);
+        } else if (authorFnameField.getText().isEmpty()) {
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Empty Author Fname Field")
+                    .showError();
+            delete(authors.author_id);
+        } else {
+            authors.author_id = Integer.parseInt(authorIdField.getText());
+            authors.name = authorNameField.getText();
+            authors.fname = authorFnameField.getText();
+
+            Notifications.create()
+                    .position(Pos.TOP_RIGHT)
+                    .title("Authors FXML")
+                    .text("Successful Delete")
+                    .showConfirm();
+
+            delete(authors.author_id);
+            showAuthors();
+        }
     }
 
-    public void showButton() {showAuthors();}
+    public void showButton(ActionEvent actionEvent) throws IOException {showAuthors();}
 
 }

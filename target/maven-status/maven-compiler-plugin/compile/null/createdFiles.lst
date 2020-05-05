@@ -8,5 +8,5 @@ com/murilo/BackButton.class
 controllers/BooksController.class
 module-info.class
 controllers/PublishersController.class
-models/Publishers.class
 dao/ClientDAO.class
+models/Publishers.class

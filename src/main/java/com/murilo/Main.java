@@ -16,6 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         scene = new Scene(loadFXML("Primary"));
+        scene.getStylesheets().add(getClass().getResource("Pane.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Library System");
